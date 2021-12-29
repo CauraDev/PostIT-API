@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.container {
+  background: #0f9b0f;
+  background: linear-gradient(45deg, #0f9b0f 0%, #08380e 100%);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+.container h1 {
+  text-align: center;
+  font-size: 50px;
+}
+.container .filterDiv {
+  margin-top: 40px;
+  width: 80%;
+  max-width: 800px;
+}
+.container .filterDiv .filter {
+  width: 100%;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+.container .filterDiv .filter:focus {
+  box-shadow: 0px 0px 15px #fff;
+}
+.container .postContainer {
+  width: 80vw;
+}
+.container .postContainer .postNumber {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  font-weight: 600;
+  background: white;
+  color: #580958;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 10px;
+}
+.container .postContainer .post {
+  background-color: #580958;
+  margin: 40px 0 0 0;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container .postContainer .post .postTitle {
+  margin-bottom: 15px;
+}
+.container .postContainer .post .postText {
+  line-height: 1.3;
+}
+.container .loader {
+  display: flex;
+  position: fixed;
+  bottom: 50px;
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+}
+.container .loader .dot {
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+  animation: bounce 0.5s ease-in infinite;
+}
+.container .loader .dot:nth-last-of-type(2) {
+  animation-delay: 0.1s;
+}
+.container .loader .dot:nth-last-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
