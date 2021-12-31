@@ -21,6 +21,34 @@ $color2: #fff;
     justify-content: center;
     padding-bottom: 100px;
 
+    .limitSelectorContainer{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+
+        .limitSelector{
+            width: 40px;
+            height: 40px;
+            font-size: 25px;
+            font-weight: 600;
+            background: white;
+            color: $color1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: 10px;
+
+            &.selected {
+                color: #fff;
+                background: $color1;
+            }
+       }
+    }
+
     h1{
         text-align: center;
         font-size: 50px;
@@ -51,6 +79,10 @@ $color2: #fff;
 
     .postContainer{
         width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         .postNumber{
             position: absolute;
@@ -97,8 +129,8 @@ $color2: #fff;
          display: flex;
          position: fixed;
          bottom: 50px;
-         opacity: 1;
-         transition: opacity 0.1s ease-in;
+         z-index: 100;
+         opacity: 0;
 
          .dot{
              background-color: $color2;
