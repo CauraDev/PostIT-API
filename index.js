@@ -1,11 +1,33 @@
 const postContainer = document.querySelector(".postContainer");
 const loader = document.querySelector(".loader");
-const inputFilter = document.querySelector("#filter")
+const inputFilter = document.querySelector("#filter");
+const allSelect = document.querySelectorAll(".limitSelector");
 
 //https://jsonplaceholder.typicode.com/posts?_page=1&_limit=5
 
 let page = 1;
-let limit = 1;
+let limit = 5;
+
+
+
+
+//TO CHANGE THE LIMIT AFTER FETCHING MESSES UP THE NUMBER SEQUENCE.
+document.addEventListener("click", (event) => {
+
+    if (event.target.classList.contains("limitSelector")) {
+
+    allSelect.forEach((value) => {
+        value.classList = "limitSelector";
+        })
+
+        event.target.classList.add("selected");
+
+        limit = Number(event.target.innerHTML);
+    
+    }
+
+})
+
 
 const getPosts = async () => {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${limit}`)
@@ -44,7 +66,7 @@ function initiate() {
         
         const {scrollTop, clientHeight, scrollHeight} = document.documentElement;
 
-        if (scrollTop + clientHeight >= scrollHeight) {
+        if (scrollTop + clientHeight >= scrollHeight && inputFilter.value == "") {
 
             page++;
            
@@ -52,6 +74,28 @@ function initiate() {
 
             showLoader(newPosts);
         }
+    })
+
+    inputFilter.addEventListener("input", (e) => {
+
+        const mySearch = e.target.value.toUpperCase();
+
+        const everyPost = document.querySelectorAll(".post");
+
+        for (const post of everyPost) {
+            
+            const postTitle = post.querySelector(".postTitle").innerHTML.toUpperCase();
+
+            if(postTitle.includes(mySearch)) {
+                post.style.display = "flex";
+
+            } else {
+                post.style.display = "none";
+            }
+
+
+        }
+
     })
 }
 
